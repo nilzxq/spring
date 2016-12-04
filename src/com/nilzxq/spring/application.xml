@@ -8,6 +8,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 	<!-- 将所有的IOC实体类，都交给这个配置来管理，实例化。spring通过java的反射技术实例化该类 -->
-	<bean id="user" class="com.nilzxq.spring.User"></bean>
-
+	<bean id="user" class="com.nilzxq.spring.User" scope="singleton" lazy-init="true"
+	init-method="init_user" destroy-method="dest_user"></bean>
 </beans>   
