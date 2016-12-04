@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- springioc默认调用无参构造函数创建对象 -->
+	<bean id="user" class="com.nilzxq.create.User"></bean>
+	<bean id="user1" class="com.nilzxq.create.User">
+	<constructor-arg index="0" type="java.lang.Integer" value="18"></constructor-arg>
+	<constructor-arg index="1" type="java.lang.String" value="zxq"></constructor-arg>
+	</bean>
+	<bean id="factory" class="com.nilzxq.create.ObjectFactory"></bean>
+	<bean id="user2" factory-bean="factory" factory-method="getUser"></bean>
+	<bean id="user3" factory-bean="factory" factory-method="getStaticUser"></bean>
+	
+</beans>
